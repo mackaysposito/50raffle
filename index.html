@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MacKay Sposito 50th Anniversary Raffle</title>
+    <script src="js/script.js"></script>
+</head>
+<body onload="showCurrentUser(); countTickets()" style="margin: auto; text-align: center;">
+    <p>Logged in as <span id="currentUser"></span></p>
+    <p id="availableTix"></p>
+    <p>Submit <input type="number" id="number" name="number" min="0" style="width: 50px;"> tickets for 
+        <select id="prize" name="prize">
+            <option value=""></option>
+            <option value="FEB">February - Weekend at Silverwood Theme Park</option>
+            <option value="MAR">March - Sports Tickets</option>
+            <option value="APR">April - $500 AirBnB Gift Card</option>
+            <option value="MAY">May - Electric Bike</option>
+            <option value="JUN">June - Weekend at Timberline Lodge</option>
+            <option value="JUL">July - Weekend at Great Wolf Lodge</option>
+            <option value="AUG">August - Weekend at Skamania Lodge and Spa</option>
+            <option value="SEP">September - Kitchen-Aid Stand Mixer with Attachments</option>
+            <option value="OCT">October - Weekend at the Coast</option>
+            <option value="NOV">November - BBQ/Smoker</option>
+            <option value="DEC">December - Guided Fishing Trip</option>
+        </select>
+    </p>
+    <button id="submit" onclick="requestPrize()" disabled>Submit</button>
+</body>
+</html>
