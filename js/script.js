@@ -3,7 +3,7 @@ function login() {
                   " https://www.googleapis.com/auth/userinfo.email" +
                   " https://www.googleapis.com/auth/userinfo.profile";
     const client_id = "742523799324-veqnta69uporpb2oilb1k24srn5f9fm7.apps.googleusercontent.com";
-    const redirect_uri = "http://127.0.0.1:5500/index.html";
+    const redirect_uri = "https://mackaysposito.github.io/50raffle";
 
     const tokenURL = "https://accounts.google.com/o/oauth2/v2/auth?client_id=" + client_id + 
         "&redirect_uri=" + encodeURIComponent(redirect_uri) + 
