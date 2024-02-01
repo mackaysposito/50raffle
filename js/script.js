@@ -121,6 +121,7 @@ async function requestPrize() {
     
     alert("Submitted " + ticketsSpent + " tickets for " + prizeOptions.options[prizeOptions.selectedIndex].text + "!");
     countTickets();
+    showPrizePool();
     document.getElementById("number").value = 0;
 }
 
