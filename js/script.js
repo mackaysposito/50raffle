@@ -137,6 +137,22 @@ async function showCurrentUser() {
     document.getElementById("currentUser").innerHTML = await getCurrentUser();
 }
 
+async function showPrizePool() {
+    var spreadsheet = await getData(); //spreadsheet response
+    var sheetData = JSON.parse(spreadsheet); //spreadsheet data
+    var prizeOptions = document.getElementById("prize");
+    var selectedPrize = prizeOptions.value; //user-inputted prize pool
+    var totalTickets = 0;
+
+    for (ticket in sheetData.values) {
+        if (sheetData.values[ticket][2] == selectedPrize) {
+            totalTickets++;
+        }
+    }
+    
+    document.getElementById("prizePoolSize").innerHTML = "There are currently " + totalTickets + " tickets in " + selectedPrize;
+}
+
 if (window.location.href.indexOf("access_token") == -1) {
     login() //login if access token isn't present
 }
