@@ -33,12 +33,12 @@ async function countTickets() {
 
     var spreadsheet = await getData(); //spreadsheet response
     var sheetData = JSON.parse(spreadsheet); //spreadsheet data
-    var email = await getCurrentUser();
+    var user = await getCurrentUser();
 
     //TODO: generate first 50 tickets
     var exists = false;
     for (ticket in sheetData.values) {
-        if (sheetData.values[ticket][1] == email) {
+        if (sheetData.values[ticket][1] == user) {
             exists = true;
             break;
         }
@@ -57,7 +57,7 @@ async function countTickets() {
                         "range": "A" + row,
                         "majorDimension": "ROWS",
                         "values": [
-                            [nextTicket, email]
+                            [nextTicket, user]
                         ]
                     })});
         }
@@ -70,7 +70,7 @@ async function countTickets() {
     var availableTix = 0;
 
     for (ticket in sheetData.values) {
-        if (sheetData.values[ticket][1] == email && sheetData.values[ticket].length <= 2) {
+        if (sheetData.values[ticket][1] == user && sheetData.values[ticket].length <= 2) {
             availableTix++;
         }
     }
@@ -84,7 +84,7 @@ async function requestPrize() {
     const token = getToken(); //access token
     const spreadsheet = await getData(); //spreadsheet response
     const sheetData = JSON.parse(spreadsheet); //spreadsheet data
-    var email = await getCurrentUser();
+    var user = await getCurrentUser();
     var ticketsSpent = document.getElementById("number").value; //user-inputted ticket quantity to submit
     var prizeOptions = document.getElementById("prize");
     var prize = prizeOptions.value; //user-inputted prize pool
@@ -103,7 +103,7 @@ async function requestPrize() {
 
     var row; //row of the spreadsheet
     for (r = 1, tickets = 0; r < sheetData.values.length && tickets < ticketsSpent; r++) { //parse each row until all submitted tickets are accounted for
-         if (sheetData.values[r][1] == email && sheetData.values[r].length <= 2) { //if email matches and ticket hasn't been redeemed
+         if (sheetData.values[r][1] == user && sheetData.values[r].length <= 2) { //if user matches and ticket hasn't been redeemed
             row = r + 1; //r is 0-base index, spreadsheet rows are 1-base index
             await fetch("https://sheets.googleapis.com/v4/spreadsheets/1N9hdRI_tZXHD6TbWu3RmO4t5oI8tZGqDyEtGSge6jEo/values/C" + row + 
                 ":append?valueInputOption=RAW&insertDataOption=OVERWRITE&access_token=" + token, {
@@ -126,10 +126,10 @@ async function requestPrize() {
 
 async function getCurrentUser() {
     const token = getToken(); //access token
-    const currentUserInfo = await fetch("https://people.googleapis.com/v1/people/me?personFields=emailAddresses&access_token=" + token)
+    const currentUserInfo = await fetch("https://people.googleapis.com/v1/people/me?personFields=names&access_token=" + token)
         .then((response) => response.json())
         .then((json) => JSON.stringify(json));
-    const currentUser = JSON.parse(currentUserInfo).emailAddresses[0].value;
+    const currentUser = JSON.parse(currentUserInfo).names[0].displayName;
     return currentUser;
 }
 
