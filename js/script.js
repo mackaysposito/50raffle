@@ -98,6 +98,11 @@ async function requestPrize() {
         return;
     }
 
+    if (prize == "") {
+        alert("Select a prize first!");
+        return;
+    }
+
     document.getElementById("availableTix").innerHTML = "Submitting tickets, please wait..."
     document.getElementById("submit").disabled = true;
 
