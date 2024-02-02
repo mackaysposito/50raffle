@@ -150,8 +150,13 @@ async function showPrizePool() {
             totalTickets++;
         }
     }
-    
-    document.getElementById("prizePoolSize").innerHTML = "There are currently " + totalTickets + " tickets in the " + prizeOptions.options[prizeOptions.selectedIndex].text.split(" - ")[1] + " drawing";
+
+    if (selectedPrize == "") {
+        document.getElementById("prizePoolSize").innerHTML = "";
+    }
+    else {
+        document.getElementById("prizePoolSize").innerHTML = "There are currently " + totalTickets + " tickets in the " + prizeOptions.options[prizeOptions.selectedIndex].text.split(" - ")[1] + " drawing";
+    }
 }
 
 if (window.location.href.indexOf("access_token") == -1) {
