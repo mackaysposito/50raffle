@@ -151,7 +151,7 @@ async function showPrizePool() {
         }
     }
     
-    document.getElementById("prizePoolSize").innerHTML = "There are currently " + totalTickets + " tickets in " + prizeOptions.options[prizeOptions.selectedIndex].text;
+    document.getElementById("prizePoolSize").innerHTML = "There are currently " + totalTickets + " tickets in " + prizeOptions.options[prizeOptions.selectedIndex].text.split(" - ")[1];
 }
 
 if (window.location.href.indexOf("access_token") == -1) {
