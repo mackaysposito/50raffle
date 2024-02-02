@@ -93,13 +93,13 @@ async function requestPrize() {
         alert("Submit at least 1 ticket.")
         return;
     }
-
-    if (!confirm("Submit " + ticketsSpent + " tickets for " + prizeOptions.options[prizeOptions.selectedIndex].text + "?")) {
-        return;
-    }
-
+    
     if (prize == "") {
         alert("Select a prize first!");
+        return;
+    }
+    
+    if (!confirm("Submit " + ticketsSpent + " tickets for " + prizeOptions.options[prizeOptions.selectedIndex].text + "?")) {
         return;
     }
 
