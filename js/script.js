@@ -35,7 +35,6 @@ async function countTickets() {
     var sheetData = JSON.parse(spreadsheet); //spreadsheet data
     var user = await getCurrentUser();
 
-    //TODO: generate first 50 tickets
     var exists = false;
     for (ticket in sheetData.values) {
         if (sheetData.values[ticket][1] == user) {
