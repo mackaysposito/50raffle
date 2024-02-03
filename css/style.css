@@ -1,1 +1,38 @@
+:root {
+    --humanity: #E40046;
+    --grain: #FFC72C;
+    --everest: #0092BC;
+    --mackay_gray: #75787B;
+    --bg_purple: #301934;
+}
 
+body {
+    background-color: var(--bg_purple);
+    color: white;
+    font-size: 25px;
+    font-family: sans-serif;
+}
+
+option {
+    font-size: 16px;
+    background-color: white;
+    color: black;
+}
+
+input, select, #submit {
+    font-size: 20px;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+input {
+    text-align: center;
+}
+
+#submit {
+    background-color: white;
+    color: black;
+}
