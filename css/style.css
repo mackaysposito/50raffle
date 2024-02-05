@@ -26,9 +26,6 @@ input, select, #submit {
     font-size: 20px;
     border-radius: 5px;
     padding: 5px;
-}
-
-input, select {
     background-color: transparent;
     color: white;
 }
@@ -58,8 +55,6 @@ option {
 }
 
 #submit {
-    background-color: transparent;
-    color: white;
     border: 2px solid var(--humanity);
 }
 
