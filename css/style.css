@@ -59,7 +59,6 @@ option {
 }
 
 #submit:hover {
-    background-color: transparent;
     color: var(--humanity-alt);
     border: 2px solid var(--humanity-alt);
     cursor: pointer;
