@@ -1,16 +1,55 @@
 :root {
     --humanity: #E40046;
+    --humanity-alt: #AA0061;
     --grain: #FFC72C;
+    --grain-alt: #E03C31;
     --everest: #0092BC;
+    --everest-alt: #00C7B1;
     --mackay_gray: #75787B;
     --bg_purple: #301934;
 }
 
 body {
-    background-color: var(--bg_purple);
+    margin: auto;
+    text-align: center;
+    background-color: black;
     color: white;
     font-size: 25px;
     font-family: sans-serif;
+}
+
+#logo {
+    padding-top: 50px;
+    width: 40%;
+}
+
+input, select, #submit {
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+input, select {
+    background-color: transparent;
+    color: white;
+}
+
+input {
+    width: 50px;
+    text-align: center;
+    border: 2px solid var(--grain);
+}
+
+input:hover {
+    border: 2px solid var(--grain-alt);
+}
+
+select {
+    border: 2px solid var(--everest);
+}
+
+select:hover {
+    border: 2px solid var(--everest-alt);
 }
 
 option {
@@ -19,20 +58,15 @@ option {
     color: black;
 }
 
-input, select, #submit {
-    font-size: 20px;
-    border: 2px solid white;
+#submit {
     background-color: transparent;
     color: white;
-    border-radius: 5px;
-    padding: 5px;
+    border: 2px solid var(--humanity);
 }
 
-input {
-    text-align: center;
-}
-
-#submit {
-    background-color: white;
-    color: black;
+#submit:hover {
+    background-color: transparent;
+    color: var(--humanity-alt);
+    border: 2px solid var(--humanity-alt);
+    cursor: pointer;
 }
