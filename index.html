@@ -2,12 +2,15 @@
 <html>
 <head>
     <title>MacKay Sposito 50th Anniversary Raffle</title>
+    <link rel="icon" type="image/x-icon" href="img/MacSpo.ico">
+    <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js"></script>
 </head>
-<body onload="showCurrentUser(); countTickets()" style="margin: auto; text-align: center;">
+<body onload="showCurrentUser(); countTickets()">
+    <img src="img/logo.png" id="logo">
     <p>Logged in as <span id="currentUser"></span></p>
     <p id="availableTix"></p>
-    <p>Submit <input type="number" id="number" name="number" min="0" style="width: 50px;"> tickets for 
+    <p>Submit <input type="number" id="number" name="number" min="0"> tickets for 
         <select id="prize" name="prize" onchange="showPrizePool()">
             <option value=""></option>
             <option value="FEB">February - Weekend at Silverwood Theme Park</option>
