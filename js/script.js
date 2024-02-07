@@ -163,6 +163,11 @@ async function showPrizePool() {
     }
 }
 
-if (window.location.href.indexOf("access_token") == -1) {
-    login() //login if access token isn't present
+function onLoad() {
+    try {
+        showCurrentUser();
+        countTickets();
+    } catch {
+        login();
+    }
 }
