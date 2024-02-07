@@ -50,7 +50,7 @@ async function countTickets() {
         for (nextTicket = lastTicket + 1; nextTicket <= lastTicket + 50; nextTicket++) {
             var row = sheetData.values.length;
             await fetch("https://sheets.googleapis.com/v4/spreadsheets/1N9hdRI_tZXHD6TbWu3RmO4t5oI8tZGqDyEtGSge6jEo/values/A" + row + 
-                ":append?valueInputOption=RAW&insertDataOption=OVERWRITE&access_token=" + token, {
+                ":append?valueInputOption=RAW&insertDataOption=INSERT_ROWS&access_token=" + token, {
                     method: "POST",
                     body: JSON.stringify({
                         "range": "A" + row,
