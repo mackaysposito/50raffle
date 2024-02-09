@@ -163,7 +163,7 @@ async function showPrizePool() {
     }
 }
 
-function onLoad() {
+function loadPage() {
     try {
         showCurrentUser();
         countTickets();
