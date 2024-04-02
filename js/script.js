@@ -68,13 +68,69 @@ async function countTickets() {
     var sheetData = JSON.parse(spreadsheet); //spreadsheet data
     var availableTix = 0;
 
+    var feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec;
+    feb = mar = apr = may = jun = jul = aug = sep = oct = nov = dec = 0;
+
     for (ticket in sheetData.values) {
-        if (sheetData.values[ticket][1] == user && sheetData.values[ticket].length <= 2) {
-            availableTix++;
+        if (sheetData.values[ticket][1] == user) {
+            if (sheetData.values[ticket].length <= 2) {
+                availableTix++;
+            }
+            else {
+                switch (sheetData.values[ticket][2]) {
+                    case "FEB":
+                        feb++;
+                        break;
+                    case "MAR":
+                        mar++;
+                        break;
+                    case "APR":
+                        apr++;
+                        break;
+                    case "MAY":
+                        may++;
+                        break;
+                    case "JUN":
+                        jun++;
+                        break;
+                    case "JUL":
+                        jul++;
+                        break;
+                    case "AUG":
+                        aug++;
+                        break;
+                    case "SEP":
+                        sep++;
+                        break;
+                    case "OCT":
+                        oct++;
+                        break;
+                    case "NOV":
+                        nov++;
+                        break;
+                    case "DEC":
+                        dec++;
+                        break;
+                }
+            }
         }
     }
 
-    document.getElementById("availableTix").innerHTML = "You have " + availableTix + " available tickets";
+    var tixSummary = "You have " + availableTix + " available tickets";
+
+    if (feb > 0) tixSummary.concat("<br>", feb + " tickets in the February drawing");
+    if (mar > 0) tixSummary.concat("<br>", mar + " tickets in the March drawing");
+    if (apr > 0) tixSummary.concat("<br>", apr + " tickets in the April drawing");
+    if (may > 0) tixSummary.concat("<br>", may + " tickets in the May drawing");
+    if (jun > 0) tixSummary.concat("<br>", jun + " tickets in the June drawing");
+    if (jul > 0) tixSummary.concat("<br>", jul + " tickets in the July drawing");
+    if (aug > 0) tixSummary.concat("<br>", aug + " tickets in the August drawing");
+    if (sep > 0) tixSummary.concat("<br>", sep + " tickets in the September drawing");
+    if (oct > 0) tixSummary.concat("<br>", oct + " tickets in the October drawing");
+    if (nov > 0) tixSummary.concat("<br>", nov + " tickets in the November drawing");
+    if (dec > 0) tixSummary.concat("<br>", dec + " tickets in the december drawing");
+
+    document.getElementById("availableTix").innerHTML = tixSummary;
     document.getElementById("number").max = availableTix;
     document.getElementById("submit").disabled = false;
 }
