@@ -118,17 +118,17 @@ async function countTickets() {
 
     var tixSummary = "You have " + availableTix + " available tickets";
 
-    if (feb > 0) tixSummary.concat("<br>", feb + " tickets in the February drawing");
-    if (mar > 0) tixSummary.concat("<br>", mar + " tickets in the March drawing");
-    if (apr > 0) tixSummary.concat("<br>", apr + " tickets in the April drawing");
-    if (may > 0) tixSummary.concat("<br>", may + " tickets in the May drawing");
-    if (jun > 0) tixSummary.concat("<br>", jun + " tickets in the June drawing");
-    if (jul > 0) tixSummary.concat("<br>", jul + " tickets in the July drawing");
-    if (aug > 0) tixSummary.concat("<br>", aug + " tickets in the August drawing");
-    if (sep > 0) tixSummary.concat("<br>", sep + " tickets in the September drawing");
-    if (oct > 0) tixSummary.concat("<br>", oct + " tickets in the October drawing");
-    if (nov > 0) tixSummary.concat("<br>", nov + " tickets in the November drawing");
-    if (dec > 0) tixSummary.concat("<br>", dec + " tickets in the december drawing");
+    /*if (feb > 0) */tixSummary.concat("<br>", feb + " tickets in the February drawing");
+    /*if (mar > 0) */tixSummary.concat("<br>", mar + " tickets in the March drawing");
+    /*if (apr > 0) */tixSummary.concat("<br>", apr + " tickets in the April drawing");
+    /*if (may > 0) */tixSummary.concat("<br>", may + " tickets in the May drawing");
+    /*if (jun > 0) */tixSummary.concat("<br>", jun + " tickets in the June drawing");
+    /*if (jul > 0) */tixSummary.concat("<br>", jul + " tickets in the July drawing");
+    /*if (aug > 0) */tixSummary.concat("<br>", aug + " tickets in the August drawing");
+    /*if (sep > 0) */tixSummary.concat("<br>", sep + " tickets in the September drawing");
+    /*if (oct > 0) */tixSummary.concat("<br>", oct + " tickets in the October drawing");
+    /*if (nov > 0) */tixSummary.concat("<br>", nov + " tickets in the November drawing");
+    /*if (dec > 0) */tixSummary.concat("<br>", dec + " tickets in the december drawing");
 
     document.getElementById("availableTix").innerHTML = tixSummary;
     document.getElementById("number").max = availableTix;
