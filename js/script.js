@@ -28,7 +28,7 @@ async function getData() {
             .then((json) => JSON.stringify(json));
         return sheetData;
     } catch {
-        login()
+        login();
     }
 }
 
@@ -190,12 +190,16 @@ async function requestPrize() {
 }
 
 async function getCurrentUser() {
-    const token = getToken(); //access token
-    const currentUserInfo = await fetch("https://people.googleapis.com/v1/people/me?personFields=names&access_token=" + token)
-        .then((response) => response.json())
-        .then((json) => JSON.stringify(json));
-    const currentUser = JSON.parse(currentUserInfo).names[0].displayName;
-    return currentUser;
+    try {
+        const token = getToken(); //access token
+        const currentUserInfo = await fetch("https://people.googleapis.com/v1/people/me?personFields=names&access_token=" + token)
+            .then((response) => response.json())
+            .then((json) => JSON.stringify(json));
+        const currentUser = JSON.parse(currentUserInfo).names[0].displayName;
+        return currentUser;
+    } catch {
+        login();
+    }
 }
 
 async function showCurrentUser() {
