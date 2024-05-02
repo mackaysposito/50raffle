@@ -21,11 +21,15 @@ function getToken() {
 }
 
 async function getData() {
-    const token = getToken();
-    var sheetData = await fetch("https://sheets.googleapis.com/v4/spreadsheets/1N9hdRI_tZXHD6TbWu3RmO4t5oI8tZGqDyEtGSge6jEo/values/Sheet1?access_token=" + token)
-        .then((response) => response.json())
-        .then((json) => JSON.stringify(json));
-    return sheetData;
+    try {
+        const token = getToken();
+        var sheetData = await fetch("https://sheets.googleapis.com/v4/spreadsheets/1N9hdRI_tZXHD6TbWu3RmO4t5oI8tZGqDyEtGSge6jEo/values/Sheet1?access_token=" + token)
+            .then((response) => response.json())
+            .then((json) => JSON.stringify(json));
+        return sheetData;
+    } catch {
+        login()
+    }
 }
 
 async function countTickets() {
